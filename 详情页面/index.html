@@ -42,7 +42,7 @@
     
     <title>
         
-            详情页面 | 小新的博客
+            详情页面 | 小新的记事本
         
     </title>
     
@@ -131,6 +131,18 @@
     
         <v-list id="sub-menu" class="font-weight-medium" dense>
             
+                
+                    <v-list-item href="/categories/%E6%97%A5%E5%B8%B8/" link>
+                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="1" >
+                            <v-hover v-model="menuHover">
+                                <v-list-item-content>
+                                    <span>日常</span>                              
+                                </v-list-item-content>                           
+                            </v-hover>
+                        </v-badge>
+                    </v-list-item>
+                
+            
         </v-list>    
     
 
@@ -182,7 +194,7 @@
   <v-col cols="12" md="8" align-self="end">
     <div id="site-header">
       <div id="site-title">
-        <a href="/" rel="home">小新的博客</a>
+        <a href="/" rel="home">小新的记事本</a>
       </div>
       <div id="site-description"></div>
       <div id="mobile-menu" class="d-block d-md-none">
