@@ -41,7 +41,49 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/07/14/Hello-Bolg/","path":"2021/07/14/Hello-Bolg/","title":"Hello Blog"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello Blog | 小新的记事本</title>
+<!-- *************************************************************************** -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <!-- 引入跳文字特效文件 -->
+  <script>
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+var $i = $("<span/>").text(a[a_idx]);
+a_idx = (a_idx + 1) % a.length;
+var x = e.pageX,
+y = e.pageY;
+$i.css({
+    "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+    "top": y - 20,
+    "left": x,
+    "position": "absolute",
+    "font-weight": "bold",
+    "color": "red"
+});
+$("body").append($i);
+$i.animate({
+    "top": y - 180,
+    "opacity": 0
+},
+1500,
+function() {
+    $i.remove();
+});
+});
+});</script>
+
+  <!-- 花花特效 -->
+<!--<script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/click.min.js"></script>-->
+<script src="../source/js/flower_click.js"></script>
+<!-- 引入小心心特效 -->
+<!--<script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/clicklove.js"></script>-->
+
+<!-- 社会主义核心价值观 -->
+<!--<script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/clicksocialvalue.js"></script>-->
+
+ <!-- *************************************************************************** -->
+  <title>Hello Blog | 小新的记事本</title>
   
 
 
@@ -50,6 +92,10 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+  
+
+
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -285,6 +331,7 @@
 
 
 
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81MzYzMC8zMDEwMw=="></div>
 </div>
   </main>
 
@@ -322,6 +369,7 @@
 
 
 
+<script src="/js/third-party/comments/livere.js"></script>
 
   
 <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
