@@ -6,10 +6,11 @@
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
 <!-- 文章加密 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
 <script>
     (function(){
         if(''){
-            if (prompt('请输入文章密码') !== ''){
+            if (md5(prompt('请输入文章密码')) !== ''){
                 alert('密码错误！');
                 history.back();
             }
@@ -194,7 +195,7 @@ function() {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -207,7 +208,7 @@ function() {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
