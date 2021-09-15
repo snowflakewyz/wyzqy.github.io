@@ -24,28 +24,31 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":16},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
 
-<meta name="description" content="写在前面我们花费大量的时间在一台电脑上搭建好博客，可能由于重做系统，或者换电脑，那么怎么在另一台电脑上继续来维护我们博客呢？">
+<meta name="description" content="js中的数据类型分为两大类~ 基本类型：Number、String、Boolean、Null、Undefined、Symbol 复杂类型：Object、Function、Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在另一台电脑上继续写博客">
-<meta property="og:url" content="http://example.com/2021/07/25/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%8F%A6%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E7%BB%A7%E7%BB%AD%E5%86%99%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="你真的了解  JS 中的数据类型检测吗？">
+<meta property="og:url" content="http://example.com/2021/09/15/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/index.html">
 <meta property="og:site_name" content="小新的记事本">
-<meta property="og:description" content="写在前面我们花费大量的时间在一台电脑上搭建好博客，可能由于重做系统，或者换电脑，那么怎么在另一台电脑上继续来维护我们博客呢？">
+<meta property="og:description" content="js中的数据类型分为两大类~ 基本类型：Number、String、Boolean、Null、Undefined、Symbol 复杂类型：Object、Function、Array">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://w.wqdream.vip/1627225123140r2x91tos.png?imageslim">
-<meta property="og:image" content="http://w.wqdream.vip/162722534278818m3hozk.png?imageslim">
-<meta property="article:published_time" content="2021-07-25T14:23:00.000Z">
-<meta property="article:modified_time" content="2021-09-14T14:29:23.988Z">
+<meta property="og:image" content="http://w.wqdream.vip/1631695577012yjjol18k.png?imageslim">
+<meta property="og:image" content="http://w.wqdream.vip/163170291195097zoyy23.png?imageslim">
+<meta property="og:image" content="http://w.wqdream.vip/1631709128933jkh0tdny.png?imageslim">
+<meta property="og:image" content="http://w.wqdream.vip/1631710142528xa4qkmay.png?imageslim">
+<meta property="article:published_time" content="2021-09-15T05:22:00.000Z">
+<meta property="article:modified_time" content="2021-09-15T14:41:43.702Z">
 <meta property="article:author" content="Mdream">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="分享">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://w.wqdream.vip/1627225123140r2x91tos.png?imageslim">
+<meta name="twitter:image" content="http://w.wqdream.vip/1631695577012yjjol18k.png?imageslim">
 
 
-<link rel="canonical" href="http://example.com/2021/07/25/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%8F%A6%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E7%BB%A7%E7%BB%AD%E5%86%99%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="http://example.com/2021/09/15/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/07/25/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%8F%A6%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E7%BB%A7%E7%BB%AD%E5%86%99%E5%8D%9A%E5%AE%A2/","path":"2021/07/25/如何在另一台电脑上继续写博客/","title":"如何在另一台电脑上继续写博客"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/09/15/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/","path":"2021/09/15/数据类型检测/","title":"你真的了解  JS 中的数据类型检测吗？"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <!-- *************************************************************************** -->
@@ -90,7 +93,7 @@ function() {
 <!--<script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/clicksocialvalue.js"></script>-->
 
  <!-- *************************************************************************** -->
-  <title>如何在另一台电脑上继续写博客 | 小新的记事本</title>
+  <title>你真的了解  JS 中的数据类型检测吗？ | 小新的记事本</title>
   
 
 
@@ -174,7 +177,7 @@ function() {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E7%8E%AF%E5%A2%83%E5%8F%8A%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">1、环境及软件的安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81%E6%8B%B7%E8%B4%9D%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">2、拷贝源文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%E3%80%81%E9%85%8D%E7%BD%AEgit%E7%9B%B8%E5%85%B3"><span class="nav-number">1.3.</span> <span class="nav-text">3、配置git相关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4%E3%80%81%E9%85%8D%E7%BD%AEgithubSSH%E5%AF%86%E9%92%A5"><span class="nav-number">1.4.</span> <span class="nav-text">4、配置githubSSH密钥</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5%E3%80%81%E5%AE%8C%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">5、完结</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%80%9A%E8%BF%87typeof%E6%A3%80%E6%B5%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">一、通过typeof检测数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%80%9A%E8%BF%87instanceof%E6%A3%80%E6%B5%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">二、通过instanceof检测数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%80%9A%E8%BF%87-constructor-%E6%A3%80%E6%B5%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">三、通过 constructor 检测数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%80%9A%E8%BF%87-Object-prototype-toString-call-value-%E6%A3%80%E6%B5%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">四、通过 Object.prototype.toString.call([value]) 检测数据类型</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -262,7 +265,7 @@ function() {
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/25/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%8F%A6%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E7%BB%A7%E7%BB%AD%E5%86%99%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/15/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/pupu.jfif">
@@ -275,7 +278,7 @@ function() {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          如何在另一台电脑上继续写博客
+          你真的了解  JS 中的数据类型检测吗？
         </h1>
 
         <div class="post-meta-container">
@@ -285,16 +288,10 @@ function() {
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2021-07-25 22:23:00" itemprop="dateCreated datePublished" datetime="2021-07-25T22:23:00+08:00">2021-07-25</time>
+      <time title="创建时间：2021-09-15 13:22:00 / 修改时间：22:41:43" itemprop="dateCreated datePublished" datetime="2021-09-15T13:22:00+08:00">2021-09-15</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-14 22:29:23" itemprop="dateModified" datetime="2021-09-14T22:29:23+08:00">2021-09-14</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -315,22 +312,84 @@ function() {
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a><div style="border-bottom:2px solid #d3d3d3;height:40px">写在前面</div></h4><p>我们花费大量的时间在一台电脑上搭建好博客，可能由于重做系统，或者换电脑，那么怎么在另一台电脑上继续来维护我们博客呢？</p>
-<span id="more"></span>
+        <p>js中的数据类型分为两大类~</p>
+<pre><code>基本类型：Number、String、Boolean、Null、Undefined、Symbol
+复杂类型：Object、Function、Array 
+</code></pre>
+ <span id="more"></span>
+<h3 id="一、通过typeof检测数据类型"><a href="#一、通过typeof检测数据类型" class="headerlink" title="一、通过typeof检测数据类型"></a><div style="border-bottom:1px solid #d3d3d3;height:45px">一、通过typeof检测数据类型</div></h3><p>   我们通过浏览器控制台来看一下用typeof检测数据类型的状况</p>
+<p>   <img src="http://w.wqdream.vip/1631695577012yjjol18k.png?imageslim" alt="paste image"></p>
+<pre><code>   typeof null 居然是 object类型的
+   原因：在计算机底层，数据类型的值是以二进制数储存的
+         typeof是基于这个二进制值进行类型判断的
+         恰巧 object 和 null 都是以 000 开头的，所以检测 null 为 object类型
+         这是计算机的一个bug
+</code></pre>
+<p>  <b>typeof总结：</b><br>(1)能够完美的检测出基本类型以及function函数类型（null除外，底层bug导致）。<br>(2)其他的复杂类型都归属object，所以我们无法判断出归属于object类型的这些到底属于哪一种类型</p>
+<h3 id="二、通过instanceof检测数据类型"><a href="#二、通过instanceof检测数据类型" class="headerlink" title="二、通过instanceof检测数据类型"></a><div style="border-bottom:1px solid #d3d3d3;height:45px">二、通过instanceof检测数据类型</div></h3><p> typeof能够完美检测基本类型，所以我们使用 instanceof 主要研究是否能检测复杂类型</p>
+<pre><code>  instanceof 主要检测当前实例是否属于这个类
+  console.log(1 instanceof Number); // false (不能检测基本类型)
+  
+  let arr = []; // 创建一个数组
+  console.log(arr instanceof Array);  // true
+  console.log(arr instanceof Function);  // false
+  console.log(arr instanceof Object);  // true
+</code></pre>
+<p> 我们发现 arr 不管是 Array类型 还是 Object类型，都检测为 true</p>
+<p> <b>原因：</b>只要当前类出现在实例的原型链上，结果就为true<br>arr的原型链包含 Array、Object 。所以，不管是 Array类型 还是 Object类型，都检测为 true</p>
+<p>这样虽然也能检测 arr 为 Array 类型，但还是有缺陷，看下面这个例子</p>
+<pre><code>function Fn()&#123;
+    this.name =&#39;我是fn&#39;;
+&#125;
+Fn.prototype = Object.create(Array.prototype);// 改变 Fn 的原型指向
+let fn = new Fn();
+console.log(fn instanceof Array); // true;
+</code></pre>
+<p>   <img src="http://w.wqdream.vip/163170291195097zoyy23.png?imageslim" alt="paste image"><br>   可以看到，fn 居然变成了 Array 类型,这是因为改变了他的原型指向。</p>
+<p>   <b>instanceof总结：</b><br>   (1)不能检测基本类型<br>   (2)因为我们可以肆意的修改原型的指向，所以测出来的类型不准确。    </p>
+<h3 id="三、通过-constructor-检测数据类型"><a href="#三、通过-constructor-检测数据类型" class="headerlink" title="三、通过 constructor 检测数据类型"></a><div style="border-bottom:1px solid #d3d3d3;height:45px">三、通过 constructor 检测数据类型</div></h3><p>   可以通过一个类型的 constructor 来判断类型</p>
+<pre><code>   let num = 1;
+      let arr = [];
+      console.log(num.constructor === Number);  //true
+      console.log(arr.constructor === Array);  //true
+      console.log(num.constructor === Object);  //false
+</code></pre>
+<p>   使用 constructor 可以检测普通类型和复杂类型，，但也有缺点，下面来看看</p>
+<pre><code>   Number.prototype.constructor = &#39;ABC&#39;,
+      console.log(num.constructor);  // &#39;ABC&#39;
+</code></pre>
+<p>   可以看到，num 的 constructor 变成了’ABC’</p>
+<p>   <b>constructor总结：</b><br>(1)可以检测基本类型和复杂类型<br>(2)可以随意修改原型上的constructor，所以测出来的类型不一定准确</p>
+<h3 id="四、通过-Object-prototype-toString-call-value-检测数据类型"><a href="#四、通过-Object-prototype-toString-call-value-检测数据类型" class="headerlink" title="四、通过 Object.prototype.toString.call([value]) 检测数据类型"></a><div style="border-bottom:1px solid #d3d3d3;height:45px">四、通过 Object.prototype.toString.call([value]) 检测数据类型</div></h3><p>   标准检测数据类型的方法：Object.prototype.toString 不是转换为字符串，是返回当前实例所属类的信息,在 Object 下的 toString 方法。<br>   <img src="http://w.wqdream.vip/1631709128933jkh0tdny.png?imageslim" alt="paste image"></p>
+<pre><code>   let obj = &#123;&#125;;
+      console.log(obj.toString());  // [object Object]
+</code></pre>
+<p>   只要调用 Object 上的 toString 方法就能返回 <b>[object 实例的类型]</b> 这种格式的类型</p>
+<p>   <b>猜测：</b>是不是只要把Object.prototype.toString 执行，让他里面的 this 变为要检测的值，那就能返回当前值所属类的信息</p>
+<p>   <img src="http://w.wqdream.vip/1631710142528xa4qkmay.png?imageslim" alt="paste image"></p>
+<p>   很明显，我们的猜测是对的，Object.prototype.toString.call(),可以检测出所有类型。这种方法虽然检测的很全面，但是比较复杂。检测基本类型我们可以使用typeof，所以我们来封装一个万能的类型检测函数~</p>
+<pre><code>(function()&#123;
+    var class_type = &#123;&#125;;
+ toString = class_type.toString;  // 相当于 Object.prototype.toString
+    // 下面的操作是建立类型映射表
+    var typeArr = [&quot;String&quot;,&quot;Boolean&quot;,&quot;Number&quot;,&quot;Function&quot;,&quot;Array&quot;,&quot;Date&quot;,&quot;RegExp&quot;,&quot;Object&quot;,&quot;Error&quot;,&quot;Symbol&quot;];
+    typeArr.forEach(name =&gt; &#123; // 遍历类型映射表，建立属性映射
+        class_type[`[object $&#123;name&#125;]`] = name.toLowerCase();
+    &#125;);
+    
+    function toType(obj)&#123;
+        if(obj == null)&#123; // 如果传入的是 null 或者 undefined，就返回对应的字符串
+        // 由于底层 bug， 所以 null == undefined；
+            return obj + &#39;&#39;;
+        &#125;
+        // 基本数据类型都采用 typeof 进行判断复杂类型采用 Object.prototype.toString.call() 来解决
+        return typeof obj === &quot;object&quot; || typeof obj === &quot;Function&quot; ? class_type[toString.call(obj)] || &quot;object&quot;:typeof obj;
+    &#125;
 
-<h5 id="1、环境及软件的安装"><a href="#1、环境及软件的安装" class="headerlink" title="1、环境及软件的安装"></a><div style="border-bottom:2px solid #d3d3d3;height:40px">1、环境及软件的安装</div></h5><p>安装git客户端<br/><br>安装Node JS环境</p>
-<h5 id="2、拷贝源文件"><a href="#2、拷贝源文件" class="headerlink" title="2、拷贝源文件"></a><div style="border-bottom:2px solid #d3d3d3;height:40px">2、拷贝源文件</div></h5><p>把你之前电脑的源文件拷贝到新的电脑上，最好<code>node_modules</code>文件夹不要拷贝(这里面是博客项目的依赖文件，里面文件又多，内存又大)，拷贝到新的电脑上后，在博客项目根目录打开命令行执行加载依赖文件代码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 根目录下有package.json，可以快速安装项目所需依赖</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h5 id="3、配置git相关"><a href="#3、配置git相关" class="headerlink" title="3、配置git相关"></a><div style="border-bottom:2px solid #d3d3d3;height:40px">3、配置git相关</div></h5><p>初次安装git需要配置用户名和邮箱，否则git会提示：please tell me who you are.<br/><br>你需要运行命令来配置你的用户名和邮箱:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xiaoxin&quot;</span><br><span class="line">git config --global user.email &quot;XXXXXXXX@xxx.com&quot;</span><br></pre></td></tr></table></figure>
-<p><b>注意：（引号内请输入你自己设置的名字，和你自己的邮箱）</b>此用户名和邮箱是git提交代码时用来显示你身份和联系方式的，并不是github用户名和邮箱</p>
-<h5 id="4、配置githubSSH密钥"><a href="#4、配置githubSSH密钥" class="headerlink" title="4、配置githubSSH密钥"></a><div style="border-bottom:2px solid #d3d3d3;height:40px">4、配置githubSSH密钥</div></h5><p>把项目提交到GitHub需要配置SSH密钥<br/><br>首先<b>在本地创建 SSH Keys:</b></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在git Bash中输入以下代码</span></span><br><span class="line">ssh-keygen -t rsa -C &quot;xxxx@xxxx.com&quot;</span><br></pre></td></tr></table></figure>
-<p>后面的邮箱即为 <code>GitHub</code> 注册邮箱，也是你登录 <code>GitHub</code> 的邮箱，之后会要求确认路径和输入密码，一路回车完成创建。<br/></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在git Bash中输入以下代码来查看本地SSH密钥</span></span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p><img src="http://w.wqdream.vip/1627225123140r2x91tos.png?imageslim" alt="paste image"><br>如图所示：这串代码就是SSH密钥，复制下来到GitHub的设置中配置SSH密钥即可</p>
-<p><img src="http://w.wqdream.vip/162722534278818m3hozk.png?imageslim" alt="paste image"></p>
-<h5 id="5、完结"><a href="#5、完结" class="headerlink" title="5、完结"></a>5、完结</h5><p>这样你的博客就可以在新电脑上上传GitHub了，如果还有遇到什么问题，欢迎小伙伴们下方<b>留言!!!</b></p>
+    window.toType = toType;
+&#125;)();
+</code></pre>
+<p>   直接调用 toType(obj) 函数 ，传入要检测的数据，即可返回响应的数据类型，这样就大功告成啦~</p>
 
     </div>
 
@@ -340,21 +399,19 @@ function() {
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag">❤ hexo</a>
+              <a href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">❤ 分享</a>
+              <a href="/tags/JavaScript/" rel="tag">❤ JavaScript</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/23/hexo-admin-qiniu%E5%8F%AF%E8%A7%86%E5%8C%96%E7%AE%A1%E7%90%86%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9B%BE%E7%89%87%E7%9B%B4%E6%8E%A5%E4%B8%8A%E4%BC%A0%E4%B8%83%E7%89%9B%E4%BA%91/" rel="prev" title="hexo-admin-qiniu可视化管理博客并图片直接上传七牛云">
-                  <i class="fa fa-chevron-left"></i> hexo-admin-qiniu可视化管理博客并图片直接上传七牛云
+                <a href="/2021/08/19/TS/" rel="prev" title="TypeScript部分笔记">
+                  <i class="fa fa-chevron-left"></i> TypeScript部分笔记
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/19/TS/" rel="next" title="TypeScript部分笔记">
-                  TypeScript部分笔记 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
