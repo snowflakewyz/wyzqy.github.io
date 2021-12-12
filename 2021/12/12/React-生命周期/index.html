@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":16},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+
+<meta name="description" content="总结 React 生命周期写在前面说到React生命周期，就如同人的一生，从出生，到成长，再到凉凉，其中经历的就叫做人的生命周期。那么 React 也有自己的生命周期。但React更新速度之快，现在版本和之前形成了  “新旧生命周期” ，现在我们先看一下他们的区别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 生命周期">
+<meta property="og:url" content="http://example.com/2021/12/12/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+<meta property="og:site_name" content="小新的记事本">
+<meta property="og:description" content="总结 React 生命周期写在前面说到React生命周期，就如同人的一生，从出生，到成长，再到凉凉，其中经历的就叫做人的生命周期。那么 React 也有自己的生命周期。但React更新速度之快，现在版本和之前形成了  “新旧生命周期” ，现在我们先看一下他们的区别">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://w.wqdream.vip/1639322561121b4xgitww.png?imageslim">
+<meta property="og:image" content="http://w.wqdream.vip/1639322718276aww7l7fl.png?imageslim">
+<meta property="og:image" content="http://w.wqdream.vip/163932285912503dpyy9q.png?imageslim">
+<meta property="og:image" content="http://w.wqdream.vip/1639322623404evc2i3uv.png?imageslim">
+<meta property="og:image" content="http://w.wqdream.vip/1639322978839t2zsivef.png?imageslim">
+<meta property="article:published_time" content="2021-12-12T14:40:00.000Z">
+<meta property="article:modified_time" content="2021-12-12T15:32:52.873Z">
+<meta property="article:author" content="Mdream">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://w.wqdream.vip/1639322561121b4xgitww.png?imageslim">
+
+
+<link rel="canonical" href="http://example.com/2021/12/12/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/12/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/","path":"2021/12/12/React-生命周期/","title":"React 生命周期"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<!-- *************************************************************************** -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <!-- 引入跳文字特效文件 -->
+   <script>
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+var $i = $("<span/>").text(a[a_idx]);
+a_idx = (a_idx + 1) % a.length;
+var x = e.pageX,
+y = e.pageY;
+$i.css({
+    "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+    "top": y - 20,
+    "left": x,
+    "position": "absolute",
+    "font-weight": "bold",
+    "color": "red"
+});
+$("body").append($i);
+$i.animate({
+    "top": y - 180,
+    "opacity": 0
+},
+1500,
+function() {
+    $i.remove();
+});
+});
+});</script>
+
+  <!-- 花花特效 -->
+<!--<script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/click.min.js"></script>-->
+<!--<script src="../source/js/flower_click.js"></script>-->
+<!-- 引入小心心特效 -->
+<!--<script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/clicklove.js"></script>-->
+
+<!-- 社会主义核心价值观 -->
+<!--<script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/clicksocialvalue.js"></script>-->
+
+ <!-- *************************************************************************** -->
+  <title>React 生命周期 | 小新的记事本</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">小新的记事本</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Mdream</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.</span> <span class="nav-text">总结 React 生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%97%A7%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.2.</span> <span class="nav-text">一、旧的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.1.</span> <span class="nav-text">挂载阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-1-constructor"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">1.1 constructor()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-2componentWillMount"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">1.2componentWillMount()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-3-render"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">1.3 render()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-4componentDidMount"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">1.4componentDidMount()</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.2.</span> <span class="nav-text">更新阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1componentWillReceiveProps-props"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">2.1componentWillReceiveProps(props)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2shouldComponentUpdate"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">2.2shouldComponentUpdate()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-3componentWillUpdate-nextProps%EF%BC%8CnextState"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">2.3componentWillUpdate(nextProps，nextState)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-4render"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">2.4render()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-5componentDidUpdate-prevProps-prevState"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">2.5componentDidUpdate(prevProps,prevState)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.3.</span> <span class="nav-text">卸载阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-1-componentWillUnmount"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">3.1 componentWillUnmount()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E6%97%A7-%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">生命周期(旧)总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%96%B0%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.3.</span> <span class="nav-text">二、新的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#4-1static-getDerivedStateFromProps-props-state"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">4.1static  getDerivedStateFromProps(props,state)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-2getSnapshotBeforeUpdate-prevProps-prevState"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">4.2getSnapshotBeforeUpdate(prevProps, prevState)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E6%96%B0-%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">生命周期(新)总结</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Mdream"
+      src="/images/pupu.jfif">
+  <p class="site-author-name" itemprop="name">Mdream</p>
+  <div class="site-description" itemprop="description">前端技术爱好者</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/WQdream" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;WQdream" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wyz190929@163.com" title="E-Mail → mailto:wyz190929@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://wqdream.vip/" title="https:&#x2F;&#x2F;wqdream.vip" rel="noopener" target="_blank">小新的记事本</a>
+        </li>
+    </ul>
+  </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pupu.jfif">
+      <meta itemprop="name" content="Mdream">
+      <meta itemprop="description" content="前端技术爱好者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的记事本">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          React 生命周期
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-12 22:40:00 / 修改时间：23:32:52" itemprop="dateCreated datePublished" datetime="2021-12-12T22:40:00+08:00">2021-12-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="总结-React-生命周期"><a href="#总结-React-生命周期" class="headerlink" title="总结 React 生命周期"></a>总结 React 生命周期</h3><h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>说到React生命周期，就如同人的一生，从出生，到成长，再到凉凉，其中经历的就叫做人的生命周期。<br>那么 React 也有自己的生命周期。但React更新速度之快，现在版本和之前形成了  “新旧生命周期” ，<br>现在我们先看一下他们的区别</p>
+<span id="more"></span>
+
+<h4 id="一、旧的生命周期"><a href="#一、旧的生命周期" class="headerlink" title="一、旧的生命周期"></a>一、旧的生命周期</h4><p>Q: React 都已经更新了新的生命周期了，为什么我们还要学习旧的生命周期(钩子)呢</p>
+<p>A: 首先 React 在17.x的版本中还没有废弃旧钩子，只是会有弃用警告<br>    其次目前不是所有的项目都用了新的生命周期(钩子)，所以我们旧的也要学<br>    最后新的生命周期(钩子)也只是在旧的生命周期上废弃了三个钩子，增加了两个钩子，其他核心不变<br>    <img src="http://w.wqdream.vip/1639322561121b4xgitww.png?imageslim" alt="paste image"></p>
+<p>生命周期分为三个阶段：挂载、更新、卸载</p>
+<p>我们分两个阶段来研究：挂载和更新    （看上图，无论是挂载还是更新都可以走到卸载）</p>
+<h5 id="挂载阶段"><a href="#挂载阶段" class="headerlink" title="挂载阶段"></a>挂载阶段</h5><h6 id="1-1-constructor"><a href="#1-1-constructor" class="headerlink" title="1.1 constructor()"></a>1.1 constructor()</h6><p>constructor() 中完成了React数据的初始化，他接收一个参数：props.<br>在constructor 中 必须写 super(props);这个是类有关继承的知识点<br><strong>tips：</strong>constructor() 是可有可无的，不写constructor()也不会对我们的页面造成什么影响<br>在 React 官网中是这么写的<br><img src="http://w.wqdream.vip/1639322718276aww7l7fl.png?imageslim" alt="paste image"></p>
+<h6 id="1-2componentWillMount"><a href="#1-2componentWillMount" class="headerlink" title="1.2componentWillMount()"></a>1.2componentWillMount()</h6><p>这个钩子一般用的比较少，在调用完constructor钩子后，组件还未渲染时调用</p>
+<h6 id="1-3-render"><a href="#1-3-render" class="headerlink" title="1.3 render()"></a>1.3 render()</h6><p>每个组件都要有一个render钩子，这个用来渲染组件，把你想渲染的内容用jsx语法写在这个钩子中</p>
+<h6 id="1-4componentDidMount"><a href="#1-4componentDidMount" class="headerlink" title="1.4componentDidMount()"></a>1.4componentDidMount()</h6><p>在组件完成第一次渲染后调用，如果有页面初始的时候就要执行的事就需要在这个钩子中调用</p>
+<p>(例如：在页面一加载完成就启动一个定时器。)</p>
+<h5 id="更新阶段"><a href="#更新阶段" class="headerlink" title="更新阶段"></a>更新阶段</h5><h6 id="2-1componentWillReceiveProps-props"><a href="#2-1componentWillReceiveProps-props" class="headerlink" title="2.1componentWillReceiveProps(props)"></a>2.1componentWillReceiveProps(props)</h6><p>组件将要接收新的props 的钩子，这个钩子用于父子组件之间，父组件可以向子组件传递参数，在子组件中写这个钩子，props参数是更新过一次之后的参数</p>
+<h6 id="2-2shouldComponentUpdate"><a href="#2-2shouldComponentUpdate" class="headerlink" title="2.2shouldComponentUpdate()"></a>2.2shouldComponentUpdate()</h6><p>这个钩子可以看成是一个阀门，只有返回值为true的时候，才能继续执行下面的钩子，如果为false，则不执行下面的钩子。<br>tips: 如果我们在组件中没有写这个钩子，那么React底层会帮我们补全并且返回值为true，如果我们自己在组件中写了这个钩子，那么就一定要有返回值</p>
+<h6 id="2-3componentWillUpdate-nextProps，nextState"><a href="#2-3componentWillUpdate-nextProps，nextState" class="headerlink" title="2.3componentWillUpdate(nextProps，nextState)"></a>2.3componentWillUpdate(nextProps，nextState)</h6><p>在组件更新前调用，一般用的比较少。这里可以拿到nextProps，nextState。看图可以看到这个钩子旁边有个forceUpdate()方法，如果调用这个方法，则会直接触发componentWillUpdate()钩子，这个方法是强制更新，一旦调用这个方法，则会跳过shouldComponentUpdate()这个钩子，直接进行更新。</p>
+<h6 id="2-4render"><a href="#2-4render" class="headerlink" title="2.4render()"></a>2.4render()</h6><p>看图render这个钩子贯穿挂载和更新。所以不管是挂载还是更新都会触发render这个钩子</p>
+<h6 id="2-5componentDidUpdate-prevProps-prevState"><a href="#2-5componentDidUpdate-prevProps-prevState" class="headerlink" title="2.5componentDidUpdate(prevProps,prevState)"></a>2.5componentDidUpdate(prevProps,prevState)</h6><p>除了第一次的挂载，每次更新完后都会调用componentDidUpdate()这个钩子，这里可以拿到prevProps和prevState，即更新前的props和state。</p>
+<h5 id="卸载阶段"><a href="#卸载阶段" class="headerlink" title="卸载阶段"></a>卸载阶段</h5><h6 id="3-1-componentWillUnmount"><a href="#3-1-componentWillUnmount" class="headerlink" title="3.1 componentWillUnmount()"></a>3.1 componentWillUnmount()</h6><p>这是组件在卸载前调用的钩子，主要处理组件的卸载和数据的销毁</p>
+<p>可以通过这个方法来卸载组件<br>ReactDOM.unmountComponentAtNode(document.getElementById(id名称));</p>
+<ol>
+<li>清除组件中的setTimeout，setInterval</li>
+<li>移除组件中的监听事件removeEventListener</li>
+</ol>
+<h6 id="生命周期-旧-总结"><a href="#生命周期-旧-总结" class="headerlink" title="生命周期(旧)总结"></a>生命周期(旧)总结</h6><p><img src="http://w.wqdream.vip/163932285912503dpyy9q.png?imageslim" alt="paste image"></p>
+<h4 id="二、新的生命周期"><a href="#二、新的生命周期" class="headerlink" title="二、新的生命周期"></a>二、新的生命周期</h4><p>新的生命周期就是多了两个钩子，废除了三个钩子，我们在这里重点讲述一下新增的两个钩子(这两个钩子也不常用)<br><img src="http://w.wqdream.vip/1639322623404evc2i3uv.png?imageslim" alt="paste image"></p>
+<h6 id="4-1static-getDerivedStateFromProps-props-state"><a href="#4-1static-getDerivedStateFromProps-props-state" class="headerlink" title="4.1static  getDerivedStateFromProps(props,state)"></a>4.1static  getDerivedStateFromProps(props,state)</h6><p>1.获取来自 Props 的派生状态<br>2.会在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用。<br>3.这个钩子几乎用不到，适用于state的值完全取决于props<br>4.它应返回一个对象来更新 state，如果返回 <code>null</code> 则不更新任何内容。</p>
+<pre><code><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> getDerivedStateFromProps (props)&#123;</span><br><span class="line">             <span class="built_in">console</span>.log(<span class="string">&#x27;我是新的钩子getDerivedStateFromProps&#x27;</span>);</span><br><span class="line">             <span class="keyword">return</span> props;</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h6 id="4-2getSnapshotBeforeUpdate-prevProps-prevState"><a href="#4-2getSnapshotBeforeUpdate-prevProps-prevState" class="headerlink" title="4.2getSnapshotBeforeUpdate(prevProps, prevState)"></a>4.2getSnapshotBeforeUpdate(prevProps, prevState)</h6><ol>
+<li><p>在更新之前获取快照，并且传递给 componentDidUpdate 这个钩子<br>（可以理解为在更新之前保存好之前的数据，并在更新后把保存的之前的数据传过去）</p>
+</li>
+<li><p>在 React 开启异步渲染模式后，在 render 阶段读取到的 DOM 元素状态并不总是和 commit 阶段相同，这就导致在<br> componentDidUpdate 中使用 componentWillUpdate 中读取到的 DOM 元素状态是不安全的，因为这时的值很有可能已经失效了。</p>
+</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过这个钩子保存更新之前的scrollHeight</span></span><br><span class="line">getSnapshotBeforeUpdate ()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.div.scrollHeight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把 return的值传递给componentDidUpdate() 这个钩子使用</span></span><br><span class="line">componentDidUpdate (preProps,preState,snapshot)&#123;</span><br><span class="line">                <span class="built_in">this</span>.div.scrollTop +=<span class="built_in">this</span>.div.scrollHeight - snapshot;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="生命周期-新-总结"><a href="#生命周期-新-总结" class="headerlink" title="生命周期(新)总结"></a>生命周期(新)总结</h6><p><img src="http://w.wqdream.vip/1639322978839t2zsivef.png?imageslim" alt="paste image"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/react/" rel="tag">❤ react</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/15/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/" rel="prev" title="你真的了解  JS 中的数据类型检测吗？">
+                  <i class="fa fa-chevron-left"></i> 你真的了解  JS 中的数据类型检测吗？
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81MzYzMC8zMDEwMw=="></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">豫ICP备2021022453号-1 </a>
+  </div>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mdream</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script src="/js/third-party/comments/livere.js"></script>
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
